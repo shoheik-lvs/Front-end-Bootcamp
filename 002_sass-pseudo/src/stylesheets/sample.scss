@@ -1,0 +1,97 @@
+// 見本
+.sample-container {
+  // #1 消化済タスク
+  .sample-list-item {
+    &:after { // '.sample-list-item:after'にコンパイルされる。
+      content: "×"; // 擬似要素にcontent属性は必須。
+      color: red;
+    }
+  }
+
+  // #2 Newラベル
+  .sample-new-image-frame {
+    position: relative;
+    overflow: hidden;
+    &:after {
+      // 内容指定
+      content: "New";
+
+      // 位置指定（親要素のposition:relative指定が必要）
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      // 装飾指定
+      background-color: #f00;
+      color: #fff;
+
+      // オプション
+      width: 80px;
+      font-size: 19px;
+      text-align: center;
+      top: 9px;
+      right: -20px;
+      transform: rotateZ(45deg);
+    }
+  }
+
+  // #3 hoverライク
+  .sample-hover-image {
+    position: relative;
+    &:hover:before {
+      // 内容指定
+      content: "Like!";
+
+      // 位置指定
+      position: absolute;
+
+      // サイズ指定
+      width: 100%;
+      height: 175px;
+
+      // 装飾指定
+      background-color: rgba(0,0,0,0.5);
+      font-size: 22px;
+      color: #fff;
+      text-align: center;
+      line-height: 175px;
+      cursor: pointer;
+    }
+  }
+
+  // #4 Hoverスライドアップ
+  .sample-hover-slide-up {
+    position: relative;
+    height: 166px;
+    overflow: hidden;
+
+    // まず、before要素のスタイルを充てておく。
+    &:before {
+      content: "評価: ★★★☆☆";
+
+      // 位置指定。
+      position: absolute;
+      top: 170px; // 下の方に隠しておく。
+
+      // サイズ指定
+      width: 100%;
+      height: 166px;
+
+      // 装飾指定
+      background-color: rgba(0,0,0,0.5);
+      font-size: 22px;
+      color: #fff;
+      text-align: center;
+      line-height: 166px;
+      cursor: pointer;
+
+      // hover時のゆっくり効果。
+      transition: all 0.5s ease;
+    }
+
+    // hoverした時に、before要素がせり上がってくるように指定。
+    &:hover:before {
+      top: 0; // top: 170px; から top: 0;まで移動。
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "002_sass-pseudo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "node-sass --include-path scss src/stylesheets/main.scss src/stylesheets/main.css",
+    "watch:css": "node-sass -w --include-path scss src/stylesheets/main.scss src/stylesheets/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^3.7.0"
+  }
+}
